@@ -23,7 +23,7 @@ import os
 
 # Set up Hugging Face LLM (you can also load models locally if required)
 # Replace "model_id" with any model available on Hugging Face Hub (e.g., "gpt2" or "distilgpt2")
-llm = HuggingFaceHub(huggingfacehub_api_token="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",repo_id="meta-llama/Llama-3.2-1B")
+llm = HuggingFaceHub(huggingfacehub_api_token="hf_key",repo_id="meta-llama/Llama-3.2-1B")
 model_name = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(model_name)
 chain = load_qa_chain(llm, chain_type="stuff")
@@ -50,9 +50,9 @@ documents = chunk_data(doc=doc)
 print(len(documents))
 embeddings = get_embeddings([doc.page_content for doc in documents])
 print(embeddings.shape)
-#PINECONE_API_KEY="729ce9a3-8e4e-48ea-9fb8-185318355a83"
+
 pc = Pinecone(
-        api_key="729ce9a3-8e4e-48ea-9fb8-185318355a83"
+        api_key="your Pinecone key"
     )
 
 
@@ -126,8 +126,8 @@ def speech_to_text_from_file(file_path):
         
 #Final call
 
-#recognized_text = speech_to_text_from_file(audio_file_path)
-recognized_text = "Interpolation"
+recognized_text = speech_to_text_from_file(audio_file_path)
+#recognized_text = "Interpolation"
 
 if recognized_text:
     answer = retrieve_answers(recognized_text)
