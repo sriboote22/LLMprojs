@@ -13,13 +13,13 @@ from langchain.schema import Document
 import os
 
 # Set up Hugging Face LLM and sentence transformer
-llm = HuggingFaceHub(huggingfacehub_api_token="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", repo_id="google/flan-t5-large")
+llm = HuggingFaceHub(huggingfacehub_api_token="HF key", repo_id="google/flan-t5-large")
 model_name = "sentence-transformers/all-MiniLM-L6-v2"
 model = SentenceTransformer(model_name)
 chain = load_qa_chain(llm, chain_type="stuff")
 
 # Initialize Pinecone
-pc = Pinecone(api_key="729ce9a3-8e4e-48ea-9fb8-185318355a83")
+pc = Pinecone(api_key="your Pinecone Key")
 index_name = "vaquery"
 index = pc.Index(index_name)
 
