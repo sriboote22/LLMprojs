@@ -3,7 +3,7 @@ from langchain.llms import HuggingFaceHub
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 # Set up Hugging Face LLM (you can use any summarization model)
-llm = HuggingFaceHub(huggingfacehub_api_token="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", repo_id="meta-llama/Llama-3.2-1B")
+llm = HuggingFaceHub(huggingfacehub_api_token="HF key", repo_id="meta-llama/Llama-3.2-1B")
 
 # Define a prompt template for summarization
 prompt_template = PromptTemplate(template="Summarize the following text in passive voice:\n\n{text}\n\nSummary:",
